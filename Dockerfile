@@ -1,6 +1,7 @@
 FROM node:latest
 COPY package.json /
-RUN npm i --registry=https://registry.npm.taobao.org
+RUN npm i
+RUN ls ./
 RUN npm run build
 
 FROM nginx:latest

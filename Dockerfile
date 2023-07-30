@@ -1,7 +1,9 @@
 FROM node:latest
-COPY package.json /
+RUN mkdir -p /home/app/
+COPY package.json ./
 RUN npm i
 RUN ls ./
+COPY . .
 RUN npm run build
 
 FROM nginx:latest

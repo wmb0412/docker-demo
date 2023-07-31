@@ -22,6 +22,8 @@ RUN rm -rf /usr/share/nginx/html/*
 # 复制前端项目构建产物到 Nginx 静态文件目录
 COPY --from=0 /app/dist/ /usr/share/nginx/html
 COPY  --from=0 /app/nginx.conf /etc/nginx/conf.d/
+
+RUN chmod -R 777 /usr/share/nginx/html
 # 暴露 Nginx 的 80 端口
 EXPOSE 80
 
